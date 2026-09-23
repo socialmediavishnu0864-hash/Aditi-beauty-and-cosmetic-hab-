@@ -1,1 +1,1391 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>अदिति ब्यूटी एंड कॉस्मेटिक हब</title>
+
+  <meta name="description" content="अदिति ब्यूटी एंड कॉस्मेटिक हब - Beauty, Cosmetics & Tailoring Center">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: #faf7f8;
+      color: #241b1d;
+      line-height: 1.5;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid #eadde1;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      min-width: 0;
+    }
+
+    .brand h1 {
+      font-size: 20px;
+      color: #111111;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .brand p {
+      font-size: 12px;
+      color: #777;
+      margin-top: 3px;
+    }
+
+    .order-button {
+      border: none;
+      background: #5d1024;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .order-button:hover {
+      background: #7b1732;
+    }
+
+    #orderCount {
+      display: inline-flex;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      color: #5d1024;
+      border-radius: 50px;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 35px 18px 25px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: clamp(27px, 6vw, 43px);
+      color: #5d1024;
+      margin-bottom: 9px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    .store-info {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 9px 15px;
+      border-radius: 30px;
+      background: #f8e8ed;
+      color: #5d1024;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* SEARCH */
+
+    .search-section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 18px 18px;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #dfd0d5;
+      border-radius: 11px;
+      background: white;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search-box:focus {
+      border-color: #5d1024;
+      box-shadow: 0 0 0 3px rgba(93,16,36,0.08);
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 18px 22px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-btn {
+      flex: 0 0 auto;
+      border: 1px solid #decbd1;
+      background: white;
+      color: #5d1024;
+      padding: 8px 13px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .category-btn.active,
+    .category-btn:hover {
+      background: #5d1024;
+      color: white;
+      border-color: #5d1024;
+    }
+
+    /* PRODUCTS */
+
+    .products-section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 18px 45px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 17px;
+      color: #241b1d;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid #eadde1;
+      border-radius: 13px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 8px;
+    }
+
+    .product-info {
+      padding: 11px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #281d20;
+      line-height: 1.35;
+    }
+
+    .product-size {
+      font-size: 12px;
+      color: #777;
+      margin-top: 3px;
+    }
+
+    .product-bottom {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .product-price {
+      color: #5d1024;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .add-button {
+      width: 100%;
+      border: none;
+      background: #5d1024;
+      color: white;
+      padding: 9px 7px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .add-button:hover {
+      background: #7b1732;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 10px;
+      color: #777;
+      display: none;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #190a0d;
+      color: white;
+      padding: 28px 18px;
+    }
+
+    .footer-inner {
+      max-width: 1150px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .footer-services {
+      color: #d8c8cc;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .footer-contact {
+      margin-top: 13px;
+      color: #eee;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      color: #a99b9f;
+      font-size: 11px;
+    }
+
+    /* MODAL */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      width: min(600px, 100%);
+      margin: 35px auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+    }
+
+    .modal-header {
+      padding: 17px;
+      background: #5d1024;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: 18px;
+    }
+
+    .close-button {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 27px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .order-items {
+      padding: 15px;
+    }
+
+    .empty-order {
+      text-align: center;
+      padding: 25px 5px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .order-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .order-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .order-item-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .order-item-price {
+      font-size: 12px;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .quantity-controls button {
+      width: 27px;
+      height: 27px;
+      border: 1px solid #d8cbd0;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #5d1024;
+      font-weight: bold;
+    }
+
+    .quantity {
+      min-width: 15px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .remove-item {
+      border: none;
+      background: transparent;
+      color: #a33;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+
+    .order-total {
+      padding: 15px;
+      background: #faf7f8;
+      display: flex;
+      justify-content: space-between;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .order-form {
+      padding: 15px;
+    }
+
+    .order-form label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .order-form input,
+    .order-form textarea {
+      width: 100%;
+      border: 1px solid #ddd0d5;
+      border-radius: 8px;
+      padding: 10px;
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    .order-form textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .whatsapp-button {
+      width: 100%;
+      border: none;
+      background: #168a45;
+      color: white;
+      padding: 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .whatsapp-button:hover {
+      background: #116e38;
+    }
+
+    .pickup-note {
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    /* DESKTOP */
+
+    @media (min-width: 700px) {
+      .product-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .product-name {
+        font-size: 15px;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      .product-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    /* SMALL MOBILE */
+
+    @media (max-width: 380px) {
+      .brand h1 {
+        font-size: 17px;
+      }
+
+      .brand p {
+        font-size: 10px;
+      }
+
+      .order-button {
+        padding: 9px 10px;
+        font-size: 12px;
+      }
+
+      .product-info {
+        padding: 9px;
+      }
+
+      .product-name {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="header-inner">
+
+      <div class="brand">
+        <h1>अदिति ब्यूटी एंड कॉस्मेटिक हब</h1>
+        <p>Beauty • Cosmetic • Tailoring Center</p>
+      </div>
+
+      <button class="order-button" onclick="openOrderList()">
+        Order List
+        <span id="orderCount">0</span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h2>आपकी पसंद, एक जगह</h2>
+
+    <p>
+      Beauty और cosmetic products देखें और अपनी Order List तैयार करें।
+    </p>
+
+    <div class="store-info">
+      Store Pickup • Pay at Shop
+    </div>
+
+  </section>
+
+
+  <!-- SEARCH -->
+
+  <section class="search-section">
+
+    <input
+      type="search"
+      id="searchInput"
+      class="search-box"
+      placeholder="Product खोजें..."
+      oninput="searchProducts()"
+    >
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <div class="categories">
+
+    <button
+      class="category-btn active"
+      onclick="filterCategory('all', this)"
+    >
+      सभी
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterCategory('hair', this)"
+    >
+      Hair
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterCategory('face', this)"
+    >
+      Face
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterCategory('powder', this)"
+    >
+      Powder
+    </button>
+
+    <button
+      class="category-btn"
+      onclick="filterCategory('cream', this)"
+    >
+      Cream
+    </button>
+
+  </div>
+
+
+  <!-- PRODUCTS -->
+
+  <main class="products-section">
+
+    <h2 class="section-title">Products</h2>
+
+    <div id="productGrid" class="product-grid"></div>
+
+    <div id="noResults" class="no-results">
+      कोई product नहीं मिला।
+    </div>
+
+  </main>
+
+
+  <!-- ORDER MODAL -->
+
+  <div id="orderModal" class="modal">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h3>Your Order List</h3>
+
+        <button
+          class="close-button"
+          onclick="closeOrderList()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div id="orderItems" class="order-items"></div>
+
+
+      <div class="order-total">
+
+        <span>Total</span>
+
+        <span id="orderTotal">₹0</span>
+
+      </div>
+
+
+      <div class="order-form">
+
+        <label for="customerName">
+          आपका नाम
+        </label>
+
+        <input
+          type="text"
+          id="customerName"
+          placeholder="नाम लिखें"
+        >
+
+
+        <label for="customerMobile">
+          Mobile Number (Optional)
+        </label>
+
+        <input
+          type="tel"
+          id="customerMobile"
+          placeholder="Mobile number"
+        >
+
+
+        <label for="customerNote">
+          Note (Optional)
+        </label>
+
+        <textarea
+          id="customerNote"
+          placeholder="कोई खास बात बतानी हो तो लिखें"
+        ></textarea>
+
+
+        <button
+          class="whatsapp-button"
+          onclick="sendWhatsAppOrder()"
+        >
+          WhatsApp पर Order भेजें
+        </button>
+
+        <p class="pickup-note">
+          Order भेजने के बाद सामान दुकान से लिया जा सकता है।
+          Payment दुकान पर होगा।
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-title">
+        अदिति ब्यूटी एंड कॉस्मेटिक हब
+      </div>
+
+      <div class="footer-services">
+        ब्यूटी पार्लर • कॉस्मेटिक्स • सिलाई सेंटर
+      </div>
+
+      <div class="footer-contact">
+
+        <div>
+          प्रो. किशन कुशवाहा
+        </div>
+
+        <div>
+          📞 9335289902 &nbsp; | &nbsp; 9129033788
+        </div>
+
+        <div>
+          गोखिया रोड के सामने, नरैनी रोड, अतर्रा
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 अदिति ब्यूटी एंड कॉस्मेटिक हब
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /*
+      PRODUCT DATABASE
+    */
+
+    const products = [
+
+      {
+        id: 1,
+        name: "Clinic Plus Shampoo",
+        size: "80 ml",
+        price: 55,
+        category: "hair",
+        image: "image/Clinic-Plus-Shampoo.jpg"
+      },
+
+      {
+        id: 2,
+        name: "Himalaya Face Wash",
+        size: "15 ml",
+        price: 20,
+        category: "face",
+        image: "image/Himalaya%20facewash.png"
+      },
+
+      {
+        id: 3,
+        name: "Joy Fruits",
+        size: "15 ml",
+        price: 10,
+        category: "cream",
+        image: "image/Joy%20fruits.png"
+      },
+
+      {
+        id: 4,
+        name: "Patanjali Face Wash",
+        size: "60 gm",
+        price: 70,
+        category: "face",
+        image: "image/Patanjali%20facewash.png"
+      },
+
+      {
+        id: 5,
+        name: "POND'S Powder",
+        size: "19 gm",
+        price: 10,
+        category: "powder",
+        image: "image/Ponds%20Powder%20chhota%20.png"
+      },
+
+      {
+        id: 6,
+        name: "POND'S Powder",
+        size: "40 gm",
+        price: 53,
+        category: "powder",
+        image: "image/Ponds-powder-40g.jpg"
+      },
+
+      {
+        id: 7,
+        name: "Sunsilk",
+        size: "80 ml",
+        price: 54,
+        category: "hair",
+        image: "image/Sunsilk-80ml.webp"
+      },
+
+      {
+        id: 8,
+        name: "Vicco Turmeric Skin Cream",
+        size: "15 g",
+        price: 78,
+        category: "cream",
+        image: "image/Vicco-turmeric-15g.png"
+      }
+
+    ];
+
+
+    /*
+      ORDER LIST
+    */
+
+    let orderList = [];
+
+    let currentCategory = "all";
+
+
+    /*
+      SHOW PRODUCTS
+    */
+
+    function displayProducts() {
+
+      const grid = document.getElementById("productGrid");
+      const noResults = document.getElementById("noResults");
+      const searchText =
+        document.getElementById("searchInput").value
+        .toLowerCase()
+        .trim();
+
+      grid.innerHTML = "";
+
+      const filteredProducts = products.filter(product => {
+
+        const matchesCategory =
+          currentCategory === "all" ||
+          product.category === currentCategory;
+
+        const matchesSearch =
+          product.name.toLowerCase().includes(searchText) ||
+          product.size.toLowerCase().includes(searchText);
+
+        return matchesCategory && matchesSearch;
+
+      });
+
+
+      if (filteredProducts.length === 0) {
+
+        noResults.style.display = "block";
+
+        return;
+
+      }
+
+
+      noResults.style.display = "none";
+
+
+      filteredProducts.forEach(product => {
+
+        const card = document.createElement("div");
+
+        card.className = "product-card";
+
+
+        card.innerHTML = `
+
+          <img
+            class="product-image"
+            src="${product.image}"
+            alt="${product.name}"
+            loading="lazy"
+            onerror="this.src='https://placehold.co/500x500/faf7f8/5d1024?text=Image+Not+Found'"
+          >
+
+          <div class="product-info">
+
+            <div>
+
+              <div class="product-name">
+                ${product.name}
+              </div>
+
+              <div class="product-size">
+                ${product.size}
+              </div>
+
+            </div>
+
+            <div class="product-bottom">
+
+              <div class="product-price">
+                ₹${product.price}
+              </div>
+
+              <button
+                class="add-button"
+                onclick="addToOrder(${product.id})"
+              >
+                Add to Order List
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+
+        grid.appendChild(card);
+
+      });
+
+    }
+
+
+    /*
+      SEARCH
+    */
+
+    function searchProducts() {
+
+      displayProducts();
+
+    }
+
+
+    /*
+      CATEGORY FILTER
+    */
+
+    function filterCategory(category, button) {
+
+      currentCategory = category;
+
+
+      document
+        .querySelectorAll(".category-btn")
+        .forEach(btn => {
+
+          btn.classList.remove("active");
+
+        });
+
+
+      button.classList.add("active");
+
+
+      displayProducts();
+
+    }
+
+
+    /*
+      ADD PRODUCT
+    */
+
+    function addToOrder(productId) {
+
+      const product = products.find(
+        item => item.id === productId
+      );
+
+
+      if (!product) return;
+
+
+      const existing = orderList.find(
+        item => item.id === productId
+      );
+
+
+      if (existing) {
+
+        existing.quantity++;
+
+      } else {
+
+        orderList.push({
+
+          id: product.id,
+          name: product.name,
+          size: product.size,
+          price: product.price,
+          quantity: 1
+
+        });
+
+      }
+
+
+      updateOrderCount();
+
+    }
+
+
+    /*
+      UPDATE ORDER COUNT
+    */
+
+    function updateOrderCount() {
+
+      const count = orderList.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+
+
+      document.getElementById("orderCount").textContent = count;
+
+    }
+
+
+    /*
+      OPEN ORDER LIST
+    */
+
+    function openOrderList() {
+
+      renderOrderList();
+
+      document.getElementById("orderModal").style.display = "block";
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    /*
+      CLOSE ORDER LIST
+    */
+
+    function closeOrderList() {
+
+      document.getElementById("orderModal").style.display = "none";
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    /*
+      RENDER ORDER LIST
+    */
+
+    function renderOrderList() {
+
+      const container =
+        document.getElementById("orderItems");
+
+      const totalElement =
+        document.getElementById("orderTotal");
+
+
+      container.innerHTML = "";
+
+
+      if (orderList.length === 0) {
+
+        container.innerHTML = `
+
+          <div class="empty-order">
+            आपकी Order List अभी खाली है।
+            <br><br>
+            Products में जाकर
+            <b>Add to Order List</b>
+            दबाएँ।
+          </div>
+
+        `;
+
+        totalElement.textContent = "₹0";
+
+        return;
+
+      }
+
+
+      let total = 0;
+
+
+      orderList.forEach(item => {
+
+        const itemTotal =
+          item.price * item.quantity;
+
+        total += itemTotal;
+
+
+        const row = document.createElement("div");
+
+        row.className = "order-item";
+
+
+        row.innerHTML = `
+
+          <div class="order-item-info">
+
+            <div class="order-item-name">
+              ${item.name}
+            </div>
+
+            <div class="order-item-price">
+              ${item.size} • ₹${item.price} each
+            </div>
+
+          </div>
+
+
+          <div class="quantity-controls">
+
+            <button
+              onclick="changeQuantity(${item.id}, -1)"
+            >
+              −
+            </button>
+
+            <span class="quantity">
+              ${item.quantity}
+            </span>
+
+            <button
+              onclick="changeQuantity(${item.id}, 1)"
+            >
+              +
+            </button>
+
+          </div>
+
+
+          <button
+            class="remove-item"
+            onclick="removeFromOrder(${item.id})"
+          >
+            Remove
+          </button>
+
+        `;
+
+
+        container.appendChild(row);
+
+      });
+
+
+      totalElement.textContent = "₹" + total;
+
+    }
+
+
+    /*
+      CHANGE QUANTITY
+    */
+
+    function changeQuantity(productId, change) {
+
+      const item = orderList.find(
+        item => item.id === productId
+      );
+
+
+      if (!item) return;
+
+
+      item.quantity += change;
+
+
+      if (item.quantity <= 0) {
+
+        orderList =
+          orderList.filter(
+            item => item.id !== productId
+          );
+
+      }
+
+
+      updateOrderCount();
+
+      renderOrderList();
+
+    }
+
+
+    /*
+      REMOVE PRODUCT
+    */
+
+    function removeFromOrder(productId) {
+
+      orderList =
+        orderList.filter(
+          item => item.id !== productId
+        );
+
+
+      updateOrderCount();
+
+      renderOrderList();
+
+    }
+
+
+    /*
+      SEND WHATSAPP ORDER
+    */
+
+    function sendWhatsAppOrder() {
+
+      if (orderList.length === 0) {
+
+        alert("पहले कोई product Order List में जोड़ें।");
+
+        return;
+
+      }
+
+
+      const customerName =
+        document
+          .getElementById("customerName")
+          .value
+          .trim();
+
+
+      const customerMobile =
+        document
+          .getElementById("customerMobile")
+          .value
+          .trim();
+
+
+      const customerNote =
+        document
+          .getElementById("customerNote")
+          .value
+          .trim();
+
+
+      let message =
+        "नमस्ते, मुझे अदिति ब्यूटी एंड कॉस्मेटिक हब से ये products चाहिए:%0A%0A";
+
+
+      let total = 0;
+
+
+      orderList.forEach((item, index) => {
+
+        const itemTotal =
+          item.price * item.quantity;
+
+        total += itemTotal;
+
+
+        message +=
+          `${index + 1}. ${item.name} - ${item.size} - ${item.quantity} × ₹${item.price} = ₹${itemTotal}%0A`;
+
+      });
+
+
+      message +=
+        `%0Aकुल: ₹${total}%0A`;
+
+
+      if (customerName) {
+
+        message +=
+          `%0Aनाम: ${customerName}`;
+
+      }
+
+
+      if (customerMobile) {
+
+        message +=
+          `%0AMobile: ${customerMobile}`;
+
+      }
+
+
+      if (customerNote) {
+
+        message +=
+          `%0ANote: ${customerNote}`;
+
+      }
+
+
+      message +=
+        `%0A%0APayment दुकान पर होगा।`;
+
+
+      /*
+        WhatsApp number
+        9129033788
+      */
+
+      const whatsappNumber =
+        "919129033788";
+
+
+      const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${message}`;
+
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+
+    }
+
+
+    /*
+      CLOSE MODAL WHEN
+      CLICKING OUTSIDE
+    */
+
+    window.addEventListener(
+      "click",
+      function(event) {
+
+        const modal =
+          document.getElementById("orderModal");
+
+
+        if (event.target === modal) {
+
+          closeOrderList();
+
+        }
+
+      }
+    );
+
+
+    /*
+      INITIAL LOAD
+    */
+
+    displayProducts();
+
+    updateOrderCount();
+
+  </script>
+
+</body>
+</html>
