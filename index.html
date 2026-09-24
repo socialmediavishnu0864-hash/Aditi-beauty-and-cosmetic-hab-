@@ -23,11 +23,10 @@
     }
 
     button,
-    input {
+    input,
+    textarea {
       font: inherit;
     }
-
-    /* HEADER */
 
     header {
       position: sticky;
@@ -46,10 +45,6 @@
       align-items: center;
       justify-content: space-between;
       gap: 15px;
-    }
-
-    .brand {
-      min-width: 0;
     }
 
     .brand h1 {
@@ -485,8 +480,6 @@
       margin-top: 10px;
     }
 
-    /* DESKTOP */
-
     @media (min-width: 700px) {
       .product-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -503,8 +496,6 @@
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
     }
-
-    /* SMALL MOBILE */
 
     @media (max-width: 380px) {
       .brand h1 {
@@ -588,39 +579,44 @@
 
   <div class="categories">
 
-    <button
-      class="category-btn active"
-      onclick="filterCategory('all', this)"
-    >
-      सभी
+    <button class="category-btn active"
+      onclick="filterCategory('all', this)">
+      All
     </button>
 
-    <button
-      class="category-btn"
-      onclick="filterCategory('hair', this)"
-    >
-      Hair
+    <button class="category-btn"
+      onclick="filterCategory('shampoo', this)">
+      Shampoo
     </button>
 
-    <button
-      class="category-btn"
-      onclick="filterCategory('face', this)"
-    >
-      Face
+    <button class="category-btn"
+      onclick="filterCategory('cream', this)">
+      Cream
     </button>
 
-    <button
-      class="category-btn"
-      onclick="filterCategory('powder', this)"
-    >
+    <button class="category-btn"
+      onclick="filterCategory('facewash', this)">
+      Face Wash
+    </button>
+
+    <button class="category-btn"
+      onclick="filterCategory('powder', this)">
       Powder
     </button>
 
-    <button
-      class="category-btn"
-      onclick="filterCategory('cream', this)"
-    >
-      Cream
+    <button class="category-btn"
+      onclick="filterCategory('perfume', this)">
+      Perfume
+    </button>
+
+    <button class="category-btn"
+      onclick="filterCategory('gel', this)">
+      Gel
+    </button>
+
+    <button class="category-btn"
+      onclick="filterCategory('other', this)">
+      Other
     </button>
 
   </div>
@@ -653,25 +649,18 @@
 
         <button
           class="close-button"
-          onclick="closeOrderList()"
-        >
+          onclick="closeOrderList()">
           ×
         </button>
 
       </div>
 
-
       <div id="orderItems" class="order-items"></div>
 
-
       <div class="order-total">
-
         <span>Total</span>
-
         <span id="orderTotal">₹0</span>
-
       </div>
-
 
       <div class="order-form">
 
@@ -685,7 +674,6 @@
           placeholder="नाम लिखें"
         >
 
-
         <label for="customerMobile">
           Mobile Number (Optional)
         </label>
@@ -696,21 +684,18 @@
           placeholder="Mobile number"
         >
 
-
         <label for="customerNote">
           Note (Optional)
         </label>
 
         <textarea
           id="customerNote"
-          placeholder="कोई खास बात बतानी हो तो लिखें"
-        ></textarea>
-
+          placeholder="कोई खास बात बतानी हो तो लिखें">
+        </textarea>
 
         <button
           class="whatsapp-button"
-          onclick="sendWhatsAppOrder()"
-        >
+          onclick="sendWhatsAppOrder()">
           WhatsApp पर Order भेजें
         </button>
 
@@ -767,104 +752,293 @@
 
   <script>
 
-    /*
-      PRODUCT DATABASE
-    */
+    /* =========================
+       PRODUCT DATABASE
+       ========================= */
 
     const products = [
 
       {
         id: 1,
-        name: "Clinic Plus Shampoo",
-        size: "80 ml",
-        price: 55,
-        category: "hair",
-        image: "image/Clinic-Plus-Shampoo.jpg"
+        name: "Clean & Clear Face Wash",
+        size: "20 ml",
+        price: 30,
+        category: "facewash",
+        image: "image/Clean and clear 20ml.png"
       },
 
       {
         id: 2,
-        name: "Himalaya Face Wash",
-        size: "15 ml",
-        price: 20,
-        category: "face",
-        image: "image/Himalaya%20facewash.png"
+        name: "Clean & Clear Face Wash",
+        size: "50 ml",
+        price: 99,
+        category: "facewash",
+        image: "image/Clean and clear 50ml.png"
       },
 
       {
         id: 3,
-        name: "Joy Fruits",
-        size: "15 ml",
-        price: 10,
-        category: "cream",
-        image: "image/Joy%20fruits.png"
+        name: "Clinic Plus Shampoo",
+        size: "80 ml",
+        price: 55,
+        category: "shampoo",
+        image: "image/Clinic-Plus-Shampoo.jpg"
       },
 
       {
         id: 4,
-        name: "Patanjali Face Wash",
-        size: "60 gm",
-        price: 70,
-        category: "face",
-        image: "image/Patanjali%20facewash.png"
+        name: "Denver Blue Spray",
+        size: "50 ml",
+        price: 90,
+        category: "perfume",
+        image: "image/Denver blue 50ml.jpg"
       },
 
       {
         id: 5,
-        name: "POND'S Powder",
-        size: "19 gm",
-        price: 10,
-        category: "powder",
-        image: "image/Ponds%20Powder%20chhota%20.png"
+        name: "Denver Golden Spray",
+        size: "50 ml",
+        price: 90,
+        category: "perfume",
+        image: "image/Denver spray golden 50ml.jpg"
       },
 
       {
         id: 6,
-        name: "POND'S Powder",
-        size: "40 gm",
-        price: 53,
-        category: "powder",
-        image: "image/Ponds-powder-40g.jpg"
+        name: "Denver Body Spray",
+        size: "150 ml",
+        price: 250,
+        category: "perfume",
+        image: "image/denver-body-spray-for-men-150ml.jpg"
       },
 
       {
         id: 7,
-        name: "Sunsilk",
-        size: "80 ml",
-        price: 54,
-        category: "hair",
-        image: "image/Sunsilk-80ml.webp"
+        name: "Dove Shampoo",
+        size: "75 ml",
+        price: 60,
+        category: "shampoo",
+        image: "image/Dove shampoo 75ml.jpg"
       },
 
       {
         id: 8,
+        name: "Garnier Vitamin C Face Wash",
+        size: "50 g",
+        price: 109,
+        category: "facewash",
+        image: "image/Garnier vitamin c face wash.webp"
+      },
+
+      {
+        id: 9,
+        name: "Glow & Lovely Cream",
+        size: "25 g",
+        price: 72,
+        category: "cream",
+        image: "image/Glow and Lovely Cream 25g.jpg"
+      },
+
+      {
+        id: 10,
+        name: "Glow & Lovely Cream",
+        size: "50 g",
+        price: 139,
+        category: "cream",
+        image: "image/Glow and Lovely Cream 50g.jpg"
+      },
+
+      {
+        id: 11,
+        name: "Glow & Lovely Face Wash",
+        size: "50 g",
+        price: 97,
+        category: "facewash",
+        image: "image/Glow and Lovely face wash 50g.jpg"
+      },
+
+      {
+        id: 12,
+        name: "Himalaya Neem Face Wash",
+        size: "15 ml",
+        price: 20,
+        category: "facewash",
+        image: "image/Himalaya facewash.png"
+      },
+
+      {
+        id: 13,
+        name: "Joy Fruits Cream",
+        size: "15 ml",
+        price: 10,
+        category: "cream",
+        image: "image/Joy fruits.png"
+      },
+
+      {
+        id: 14,
+        name: "Melament Cream",
+        size: "15 g",
+        price: 50,
+        category: "cream",
+        image: "image/Melament 15g.jpg"
+      },
+
+      {
+        id: 15,
+        name: "Patanjali Aloe Vera Gel",
+        size: "60 ml",
+        price: 55,
+        category: "gel",
+        image: "image/Patanjali aloevera gail.webp"
+      },
+
+      {
+        id: 16,
+        name: "Patanjali Saundarya Face Wash",
+        size: "60 g",
+        price: 70,
+        category: "facewash",
+        image: "image/Patanjali facewash.png"
+      },
+
+      {
+        id: 17,
+        name: "POND'S Bright Beauty Cream",
+        size: "15 g",
+        price: 69,
+        category: "cream",
+        image: "image/Ponds Bright-beauty cream 15g.png"
+      },
+
+      {
+        id: 18,
+        name: "POND'S Bright Beauty Cream",
+        size: "35 g",
+        price: 199,
+        category: "cream",
+        image: "image/Ponds Bright-beauty 35g.jpg"
+      },
+
+      {
+        id: 19,
+        name: "POND'S Powder",
+        size: "19 g",
+        price: 10,
+        category: "powder",
+        image: "image/Ponds Powder 19g.png"
+      },
+
+      {
+        id: 20,
+        name: "POND'S Powder",
+        size: "40 g",
+        price: 53,
+        category: "powder",
+        image: "image/Ponds Powder.jpg"
+      },
+
+      {
+        id: 21,
+        name: "POND'S Bright Beauty Detox Face Wash",
+        size: "50 g",
+        price: 138,
+        category: "facewash",
+        image: "image/Ponds black face wash 50g.jpg"
+      },
+
+      {
+        id: 22,
+        name: "POND'S Anti-Dullness Face Wash",
+        size: "15 g",
+        price: 20,
+        category: "facewash",
+        image: "image/Ponds facewash pink.png"
+      },
+
+      {
+        id: 23,
+        name: "POND'S Face Powder",
+        size: "80 g",
+        price: 102,
+        category: "powder",
+        image: "image/Ponds face powder 80g.png"
+      },
+
+      {
+        id: 24,
+        name: "Skin Shine",
+        size: "15 g",
+        price: 50,
+        category: "cream",
+        image: "image/Skin shine.jpg"
+      },
+
+      {
+        id: 25,
+        name: "Sunsilk Shampoo",
+        size: "80 ml",
+        price: 54,
+        category: "shampoo",
+        image: "image/Sunsilk-80ml.webp"
+      },
+
+      {
+        id: 26,
         name: "Vicco Turmeric Skin Cream",
         size: "15 g",
         price: 78,
         category: "cream",
         image: "image/Vicco-turmeric-15g.png"
+      },
+
+      {
+        id: 27,
+        name: "White Tone",
+        size: "15 g",
+        price: 48,
+        category: "cream",
+        image: "image/White-tone.jpg"
+      },
+
+      {
+        id: 28,
+        name: "Betnovate-C Cream",
+        size: "30 g",
+        price: 80,
+        category: "cream",
+        image: "image/betnovate-c-cream.webp"
+      },
+
+      {
+        id: 29,
+        name: "Roop Mantra Face Cream",
+        size: "30 g",
+        price: 125,
+        category: "cream",
+        image: "image/roop-mantra-face-cream.jpg"
       }
 
     ];
 
 
-    /*
-      ORDER LIST
-    */
+    /* =========================
+       ORDER LIST
+       ========================= */
 
     let orderList = [];
-
     let currentCategory = "all";
 
 
-    /*
-      SHOW PRODUCTS
-    */
+    /* =========================
+       DISPLAY PRODUCTS
+       ========================= */
 
     function displayProducts() {
 
       const grid = document.getElementById("productGrid");
       const noResults = document.getElementById("noResults");
+
       const searchText =
         document.getElementById("searchInput").value
         .toLowerCase()
@@ -890,7 +1064,6 @@
       if (filteredProducts.length === 0) {
 
         noResults.style.display = "block";
-
         return;
 
       }
@@ -938,8 +1111,7 @@
 
               <button
                 class="add-button"
-                onclick="addToOrder(${product.id})"
-              >
+                onclick="addToOrder(${product.id})">
                 Add to Order List
               </button>
 
@@ -957,20 +1129,18 @@
     }
 
 
-    /*
-      SEARCH
-    */
+    /* =========================
+       SEARCH
+       ========================= */
 
     function searchProducts() {
-
       displayProducts();
-
     }
 
 
-    /*
-      CATEGORY FILTER
-    */
+    /* =========================
+       CATEGORY FILTER
+       ========================= */
 
     function filterCategory(category, button) {
 
@@ -980,23 +1150,20 @@
       document
         .querySelectorAll(".category-btn")
         .forEach(btn => {
-
           btn.classList.remove("active");
-
         });
 
 
       button.classList.add("active");
-
 
       displayProducts();
 
     }
 
 
-    /*
-      ADD PRODUCT
-    */
+    /* =========================
+       ADD PRODUCT
+       ========================= */
 
     function addToOrder(productId) {
 
@@ -1037,9 +1204,9 @@
     }
 
 
-    /*
-      UPDATE ORDER COUNT
-    */
+    /* =========================
+       ORDER COUNT
+       ========================= */
 
     function updateOrderCount() {
 
@@ -1054,9 +1221,9 @@
     }
 
 
-    /*
-      OPEN ORDER LIST
-    */
+    /* =========================
+       OPEN ORDER LIST
+       ========================= */
 
     function openOrderList() {
 
@@ -1069,9 +1236,9 @@
     }
 
 
-    /*
-      CLOSE ORDER LIST
-    */
+    /* =========================
+       CLOSE ORDER LIST
+       ========================= */
 
     function closeOrderList() {
 
@@ -1082,9 +1249,9 @@
     }
 
 
-    /*
-      RENDER ORDER LIST
-    */
+    /* =========================
+       RENDER ORDER LIST
+       ========================= */
 
     function renderOrderList() {
 
@@ -1103,11 +1270,15 @@
         container.innerHTML = `
 
           <div class="empty-order">
+
             आपकी Order List अभी खाली है।
+
             <br><br>
+
             Products में जाकर
             <b>Add to Order List</b>
             दबाएँ।
+
           </div>
 
         `;
@@ -1153,8 +1324,7 @@
           <div class="quantity-controls">
 
             <button
-              onclick="changeQuantity(${item.id}, -1)"
-            >
+              onclick="changeQuantity(${item.id}, -1)">
               −
             </button>
 
@@ -1163,8 +1333,7 @@
             </span>
 
             <button
-              onclick="changeQuantity(${item.id}, 1)"
-            >
+              onclick="changeQuantity(${item.id}, 1)">
               +
             </button>
 
@@ -1173,8 +1342,7 @@
 
           <button
             class="remove-item"
-            onclick="removeFromOrder(${item.id})"
-          >
+            onclick="removeFromOrder(${item.id})">
             Remove
           </button>
 
@@ -1191,9 +1359,9 @@
     }
 
 
-    /*
-      CHANGE QUANTITY
-    */
+    /* =========================
+       CHANGE QUANTITY
+       ========================= */
 
     function changeQuantity(productId, change) {
 
@@ -1225,9 +1393,9 @@
     }
 
 
-    /*
-      REMOVE PRODUCT
-    */
+    /* =========================
+       REMOVE PRODUCT
+       ========================= */
 
     function removeFromOrder(productId) {
 
@@ -1244,9 +1412,9 @@
     }
 
 
-    /*
-      SEND WHATSAPP ORDER
-    */
+    /* =========================
+       SEND WHATSAPP ORDER
+       ========================= */
 
     function sendWhatsAppOrder() {
 
@@ -1333,11 +1501,6 @@
         `%0A%0APayment दुकान पर होगा।`;
 
 
-      /*
-        WhatsApp number
-        9129033788
-      */
-
       const whatsappNumber =
         "919129033788";
 
@@ -1354,10 +1517,9 @@
     }
 
 
-    /*
-      CLOSE MODAL WHEN
-      CLICKING OUTSIDE
-    */
+    /* =========================
+       CLOSE MODAL OUTSIDE CLICK
+       ========================= */
 
     window.addEventListener(
       "click",
@@ -1377,9 +1539,9 @@
     );
 
 
-    /*
-      INITIAL LOAD
-    */
+    /* =========================
+       INITIAL LOAD
+       ========================= */
 
     displayProducts();
 
