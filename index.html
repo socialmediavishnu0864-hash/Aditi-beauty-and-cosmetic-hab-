@@ -756,499 +756,496 @@
 
   <script>
 
-    /* =========================
-       PRODUCT DATABASE
-       ========================= */
 
-    const products = [
+        // =========================
+// PRODUCT DATABASE
+// =========================
 
-      {
+const products = [
+
+    {
         id: 1,
         name: "Clean & Clear Face Wash",
         size: "20 ml",
         price: 30,
         category: "facewash",
         image: "image/Clean and clear 20ml.png"
-      },
+    },
 
-      {
+    {
         id: 2,
         name: "Clean & Clear Face Wash",
         size: "50 ml",
         price: 99,
         category: "facewash",
         image: "image/Clean and clear 50ml.png"
-      },
+    },
 
-      {
+    {
         id: 3,
         name: "Clinic Plus Shampoo",
         size: "80 ml",
         price: 55,
         category: "shampoo",
         image: "image/Clinic-Plus-Shampoo.jpg"
-      },
+    },
 
-      {
+    {
         id: 4,
         name: "Denver Blue Spray",
         size: "50 ml",
         price: 90,
         category: "perfume",
         image: "image/Denver blue 50ml.jpg"
-      },
+    },
 
-      {
+    {
         id: 5,
         name: "Denver Golden Spray",
         size: "50 ml",
         price: 90,
         category: "perfume",
         image: "image/Denver spray golden 50ml.jpg"
-      },
+    },
 
-      {
+    {
         id: 6,
         name: "Denver Body Spray",
         size: "150 ml",
         price: 250,
         category: "perfume",
         image: "image/denver-body-spray-for-men-150ml.jpg"
-      },
+    },
 
-      {
+    {
         id: 7,
         name: "Dove Shampoo",
         size: "75 ml",
         price: 60,
         category: "shampoo",
         image: "image/Dove shampoo 75ml.jpg"
-      },
+    },
 
-      {
+    {
         id: 8,
         name: "Garnier Vitamin C Face Wash",
         size: "50 g",
         price: 109,
         category: "facewash",
         image: "image/Garnier vitamin c face wash.webp"
-      },
+    },
 
-      {
+    {
         id: 9,
         name: "Glow & Lovely Cream",
         size: "25 g",
         price: 72,
         category: "cream",
         image: "image/Glow and Lovely Cream 25g.jpg"
-      },
+    },
 
-      {
+    {
         id: 10,
         name: "Glow & Lovely Cream",
         size: "50 g",
         price: 139,
         category: "cream",
         image: "image/Glow and Lovely Cream 50g.jpg"
-      },
+    },
 
-      {
+    {
         id: 11,
         name: "Glow & Lovely Face Wash",
         size: "50 g",
         price: 97,
         category: "facewash",
         image: "image/Glow and Lovely face wash 50g.jpg"
-      },
+    },
 
-      {
+    {
         id: 12,
         name: "Himalaya Neem Face Wash",
         size: "15 ml",
         price: 20,
         category: "facewash",
         image: "image/Himalaya facewash.png"
-      },
+    },
 
-      {
+    {
         id: 13,
         name: "Joy Fruits Cream",
         size: "15 ml",
         price: 10,
         category: "cream",
         image: "image/Joy fruits.png"
-      },
+    },
 
-      {
+    {
         id: 14,
         name: "Melament Cream",
         size: "15 g",
         price: 50,
         category: "cream",
         image: "image/Melament 15g.jpg"
-      },
+    },
 
-      {
+    {
         id: 15,
         name: "Patanjali Aloe Vera Gel",
         size: "60 ml",
         price: 55,
         category: "gel",
         image: "image/Patanjali aloevera gail.webp"
-      },
+    },
 
-      {
+    {
         id: 16,
         name: "Patanjali Saundarya Face Wash",
         size: "60 g",
         price: 70,
         category: "facewash",
         image: "image/Patanjali facewash.png"
-      },
+    },
 
-      {
+    {
         id: 17,
         name: "POND'S Bright Beauty Cream",
         size: "15 g",
         price: 69,
         category: "cream",
-        image: "image/Ponds Bright-beauty cream 15g.png"
-      },
+        image: "image/Ponds Bright-beauty creme 15g.png"
+    },
 
-      {
+    {
         id: 18,
         name: "POND'S Bright Beauty Cream",
         size: "35 g",
         price: 199,
         category: "cream",
         image: "image/Ponds Bright-beauty 35g.jpg"
-      },
+    },
 
-      {
+    {
         id: 19,
         name: "POND'S Powder",
         size: "19 g",
         price: 10,
         category: "powder",
         image: "image/Ponds Powder 19g.png"
-      },
+    },
 
-      {
+    {
         id: 20,
         name: "POND'S Powder",
-        size: "40 g",
-        price: 53,
+        size: "20 g",
+        price: 20,
         category: "powder",
         image: "image/Ponds Powder.jpg"
-      },
+    },
 
-      {
+    {
         id: 21,
         name: "POND'S Bright Beauty Detox Face Wash",
         size: "50 g",
         price: 138,
         category: "facewash",
         image: "image/Ponds black face wash 50g.jpg"
-      },
+    },
 
-      {
+    {
         id: 22,
         name: "POND'S Anti-Dullness Face Wash",
         size: "15 g",
         price: 20,
         category: "facewash",
         image: "image/Ponds facewash pink.png"
-      },
+    },
 
-      {
+    {
         id: 23,
         name: "POND'S Face Powder",
         size: "80 g",
         price: 102,
         category: "powder",
-        image: "image/Ponds face powder 80g.png"
-      },
+        image: "image/Ponds face Powder 80g.png"
+    },
 
-      {
+    {
         id: 24,
         name: "Skin Shine",
         size: "15 g",
         price: 50,
         category: "cream",
         image: "image/Skin shine.jpg"
-      },
+    },
 
-      {
+    {
         id: 25,
         name: "Sunsilk Shampoo",
         size: "80 ml",
         price: 54,
         category: "shampoo",
         image: "image/Sunsilk-80ml.webp"
-      },
+    },
 
-      {
+    {
         id: 26,
         name: "Vicco Turmeric Skin Cream",
         size: "15 g",
         price: 78,
         category: "cream",
         image: "image/Vicco-turmeric-15g.png"
-      },
+    },
 
-      {
+    {
         id: 27,
         name: "White Tone",
         size: "15 g",
         price: 48,
         category: "cream",
         image: "image/White-tone.jpg"
-      },
+    },
 
-      {
+    {
         id: 28,
         name: "Betnovate-C Cream",
         size: "30 g",
         price: 80,
         category: "cream",
         image: "image/betnovate-c-cream.webp"
-      },
+    },
 
-      {
+    {
         id: 29,
         name: "Roop Mantra Face Cream",
         size: "30 g",
         price: 125,
         category: "cream",
         image: "image/roop-mantra-face-cream.jpg"
-      },
-// ===== NEW 19 PRODUCTS =====
-{
-    id: 30,
-    name: "Hair & Care Oil",
-    price: 65,
-    category: "hair",
-    size: "100ml",
-    image: "image/images/Hair and Care oil 100 ml.png"
-},
+    },
 
-{
-    id: 31,
-    name: "555 Perfume",
-    price: 55,
-    category: "perfume",
-    size: "2ml",
-    image: "image/images/555 Perfume 2ml.png"
-},
 
-{
-    id: 32,
-    name: "555 Perfume",
-    price: 55,
-    category: "perfume",
-    size: "6ml",
-    image: "image/images/555 Perfume 6ml.png"
-},
+    // =========================
+    // NEW PRODUCTS
+    // =========================
 
-{
-    id: 33,
-    name: "Dabur Amla Hair Oil",
-    price: 54,
-    category: "hair",
-    size: "136ml",
-    image: "image/images/Dabur Amla hair oil 136ml.png"
-},
+    {
+        id: 31,
+        name: "555 Perfume",
+        size: "2 ml",
+        price: 55,
+        category: "perfume",
+        image: "image/555 perfume 2ml.png"
+    },
 
-{
-    id: 34,
-    name: "Amla Hair Oil",
-    price: 10,
-    category: "hair",
-    size: "26ml",
-    image: "image/images/Dabar amla hair oil 26ml.png"
-},
+    {
+        id: 32,
+        name: "555 Perfume",
+        size: "6 ml",
+        price: 55,
+        category: "perfume",
+        image: "image/555 perfume 6ml.png"
+    },
 
-{
-    id: 35,
-    name: "Badam Amla Hair Oil",
-    price: 20,
-    category: "hair",
-    size: "70ml",
-    image: "image/images/Badam awala hair oil.png"
-},
+    {
+        id: 33,
+        name: "Dabur Amla Hair Oil",
+        size: "136 ml",
+        price: 54,
+        category: "hair",
+        image: "image/Dabur Amla hair oil 136ml.png"
+    },
 
-{
-    id: 36,
-    name: "Denver Green Spray",
-    price: 90,
-    category: "perfume",
-    size: "50ml",
-    image: "image/images/Denver green spray.png"
-},
+    {
+        id: 34,
+        name: "Amla Hair Oil",
+        size: "26 ml",
+        price: 10,
+        category: "hair",
+        image: "image/Dabur Amla hair oil 26 ml.png"
+    },
 
-{
-    id: 37,
-    name: "Denver Red Spray",
-    price: 90,
-    category: "perfume",
-    size: "50ml",
-    image: "image/Images/Denver red spray.png"
-},
+    {
+        id: 35,
+        name: "Dabur Badam Amla Hair Oil",
+        size: "70 ml",
+        price: 20,
+        category: "hair",
+        image: "image/Dabur badam awala hair oil 70ml.png"
+    },
 
-{
-    id: 38,
-    name: "Denver Black Spray",
-    price: 90,
-    category: "perfume",
-    size: "50ml",
-    image: "image/Images/Denver Black spray.png"
-},
+    {
+        id: 36,
+        name: "Denver Green Spray",
+        size: "50 ml",
+        price: 90,
+        category: "perfume",
+        image: "image/Denver green spray 50ml.png"
+    },
 
-{
-    id: 39,
-    name: "Godrej No.1 Soap",
-    price: 10,
-    category: "soap",
-    size: "43g",
-    image: "image/Images/Godrej number 1 soap.png"
-},
+    {
+        id: 37,
+        name: "Denver Red Spray",
+        size: "50 ml",
+        price: 90,
+        category: "perfume",
+        image: "image/Denver red spray 50 ml.png"
+    },
 
-{
-    id: 40,
-    name: "Head & Shoulders",
-    price: 79,
-    category: "hair",
-    size: "72ml",
-    image: "image/Images/Head & Shoulders 72ml.png"
-},
+    {
+        id: 38,
+        name: "Denver Black Spray",
+        size: "50 ml",
+        price: 90,
+        category: "perfume",
+        image: "image/Denver black spray 50 ml.png"
+    },
 
-{
-    id: 41,
-    name: "Jasmine Hair Oil",
-    price: 53,
-    category: "hair",
-    size: "100ml",
-    image: "image/Images/Jasmine hair oil 100 ml.png"
-},
+    {
+        id: 39,
+        name: "Godrej No. 1 Soap",
+        size: "43 g",
+        price: 10,
+        category: "soap",
+        image: "image/Godrej no. 1 soap.png"
+    },
 
-{
-    id: 42,
-    name: "Jasmine Hair Oil",
-    price: 20,
-    category: "hair",
-    size: "45ml",
-    image: "image/Images/Jasmine hair oil 45 ml.png"
-},
+    {
+        id: 40,
+        name: "Head & Shoulders",
+        size: "72 ml",
+        price: 79,
+        category: "hair",
+        image: "image/Head and Shoulders 72ml.png"
+    },
 
-{
-    id: 43,
-    name: "Lifebuoy Soap",
-    price: 10,
-    category: "soap",
-    size: "44g",
-    image: "image/Images/Lifebuoy soap.png"
-},
+    {
+        id: 41,
+        name: "Jasmine Hair Oil",
+        size: "100 ml",
+        price: 30,
+        category: "hair",
+        image: "image/Jasmine hair oil 100 ml.png"
+    },
 
-{
-    id: 44,
-    name: "Lux Soap",
-    price: 10,
-    category: "soap",
-    size: "45g",
-    image: "image/Images/Lux soap.png"
-},
+    {
+        id: 42,
+        name: "Jasmine Hair Oil",
+        size: "45 ml",
+        price: 20,
+        category: "hair",
+        image: "image/Jasmine hair oil 45 ml.png"
+    },
 
-{
-    id: 45,
-    name: "Lux New Soap",
-    price: 10,
-    category: "soap",
-    size: "43g",
-    image: "image/Images/Lux New soap.png"
-},
+    {
+        id: 43,
+        name: "Lifebuoy Soap",
+        size: "44 g",
+        price: 10,
+        category: "soap",
+        image: "image/Lifebuoy soap.png"
+    },
 
-{
-    id: 46,
-    name: "Pears Soap",
-    price: 20,
-    category: "soap",
-    size: "60g",
-    image: "image/Images/Pears soap.png"
-},
+    {
+        id: 44,
+        name: "Lux Soap",
+        size: "45 g",
+        price: 10,
+        category: "soap",
+        image: "image/Lux soap.png"
+    },
 
-{
-    id: 47,
-    name: "Denver Body Spray",
-    price: 250,
-    category: "perfume",
-    size: "150ml",
-    image: "image/denver-body-spray-for-men-150ml.jpg"
-},
+    {
+        id: 45,
+        name: "Lux New Soap",
+        size: "43 g",
+        price: 10,
+        category: "soap",
+        image: "image/Lux new soap.png"
+    },
 
-{
-    id: 48,
-    name: "Popular Coconut Oil",
-    price: 10,
-    category: "hair",
-    size: "23ml",
-    image: "image/Images/Popular coconut oil 23 ml.png"
-},
+    {
+        id: 46,
+        name: "Pears Soap",
+        size: "60 g",
+        price: 20,
+        category: "soap",
+        image: "image/Pears soap.png"
+    },
 
-{
-    id: 49,
-    name: "Dettol Soap",
-    price: 10,
-    category: "soap",
-    size: "42g",
-    image: "image/Images/Dettol soap.png"
-},
+    {
+        id: 47,
+        name: "Denver Body Spray",
+        size: "150 ml",
+        price: 250,
+        category: "perfume",
+        image: "image/denver body spray-for-men 150ml.jpg"
+    },
 
-{
-    id: 50,
-    name: "Parachute Coconut Oil",
-    price: 71,
-    category: "hair",
-    size: "100ml",
-    image: "image/Images/Parachute coconut oil.png"
-},
+    {
+        id: 48,
+        name: "Popular Coconut Oil",
+        size: "23 ml",
+        price: 10,
+        category: "hair",
+        image: "image/Popular coconut oil 23 ml.png"
+    },
 
-{
-    id: 51,
-    name: "Lauki Ayurvedic Cool Oil",
-    price: 90,
-    category: "hair",
-    size: "100ml",
-    image: "image/Images/Lauki Ayurvedic cool oil 100ml.png"
-},
+    {
+        id: 49,
+        name: "Dettol Soap",
+        size: "42 g",
+        price: 10,
+        category: "soap",
+        image: "image/Dettol soap.png"
+    },
 
-{
-    id: 52,
-    name: "Bajaj Almond Drops Hair Oil",
-    price: 44,
-    category: "hair",
-    size: "45ml",
-    image: "image/Images/Bajaj almond drops hair oil 45ml.png"
-},
+    {
+        id: 50,
+        name: "Parachute Coconut Oil",
+        size: "100 ml",
+        price: 71,
+        category: "hair",
+        image: "image/Parachute coconut oil 100ml.png"
+    },
 
-{
-    id: 53,
-    name: "Keo Karpin Light Hair Oil",
-    price: 100,
-    category: "hair",
-    size: "200ml",
-    image: "image/Images/Keo Karpin light hair oil.png"
-},
+    {
+        id: 51,
+        name: "Lauki Ayurvedic Cool Oil",
+        size: "100 ml",
+        price: 90,
+        category: "hair",
+        image: "image/Lauki ayurvedic cool oil.png"
+    },
 
-{
-    id: 54,
-    name: "Vasmol Kesh Kala Oil",
-    price: 35,
-    category: "hair",
-    size: "50ml",
-    image: "image/Images/Vasmol kesh kala oil 50ml.png"
-},
+    {
+        id: 52,
+        name: "Bajaj Almond Drops Hair Oil",
+        size: "45 ml",
+        price: 44,
+        category: "hair",
+        image: "image/Bajaj almond drops hair oil.png"
+    },
 
-    ];
+    {
+        id: 53,
+        name: "Keo Karpin Light Hair Oil",
+        size: "200 ml",
+        price: 100,
+        category: "hair",
+        image: "image/Keo Karpin light hair oil 200ml.png"
+    },
+
+    {
+        id: 54,
+        name: "Vasmol Kesh Kala Oil",
+        size: "50 ml",
+        price: 35,
+        category: "hair",
+        image: "image/Small case Kala oil 50 ml.png"
+    }
+
+];
 
 
     /* =========================
