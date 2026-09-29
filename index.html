@@ -1689,50 +1689,32 @@ const products = [
       });
 
 
-      message +=
-        `%0Aकुल: ₹${total}%0A`;
+  
+      message += `\nकुल: ₹${total}\n`;
 
+if (customerName) {
+    message += `\nनाम: ${customerName}\n`;
+}
 
-      if (customerName) {
+if (customerMobile) {
+    message += `मोबाइल नंबर: ${customerMobile}\n`;
+}
 
-        message +=
-          `%0Aनाम: ${customerName}`;
+if (customerNote) {
+    message += `नोट: ${customerNote}\n`;
+}
 
-      }
+message += `\nPayment: दुकान पर होगा।`;
 
+const whatsappNumber = "919129033788";
 
-      if (customerMobile) {
+const whatsappURL =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-        message +=
-          `%0AMobile: ${customerMobile}`;
-
-      }
-
-
-      if (customerNote) {
-
-        message +=
-          `%0ANote: ${customerNote}`;
-
-      }
-
-
-      message +=
-        `%0A%0APayment दुकान पर होगा।`;
-
-
-      const whatsappNumber =
-        "919129033788";
-
-
-      const whatsappURL =
-        `https://wa.me/${whatsappNumber}?text=${message}`;
-
-
-      window.open(
-        whatsappURL,
-        "_blank"
-      );
+window.open(
+    whatsappURL,
+    "_blank"
+);
 
     }
 
