@@ -1668,37 +1668,48 @@ const products = [
           .trim();
 
 
-      let message =
-        "नमस्ते, मुझे ये products चाहिए:%0A%0A";
+      const customerName = document
+    .getElementById("customerName")
+    .value
+    .trim();
 
+const customerMobile = document
+    .getElementById("customerMobile")
+    .value
+    .trim();
 
-      let total = 0;
+const customerNote = document
+    .getElementById("customerNote")
+    .value
+    .trim();
 
+let message = "नमस्ते, मुझे ये products चाहिए:\n\n";
 
-      orderList.forEach((item, index) => {
+let total = 0;
 
-        const itemTotal =
-          item.price * item.quantity;
+orderList.forEach((item, index) => {
 
-        total += itemTotal;
+    const itemTotal = item.price * item.quantity;
 
+    total += itemTotal;
 
-        message +=
-          `${index + 1}. ${item.name} - ${item.size} - ${item.quantity} × ₹${item.price} = ₹${itemTotal}%0A`;
+    message += `${index + 1}. ${item.name}`;
 
-      });
+    if (item.size) {
+        message += ` - ${item.size}`;
+    }
 
+    message += ` - ${item.quantity} × ₹${item.price} = ₹${itemTotal}\n`;
 
-  
-      message += `\nकुल: ₹${total}\n`;
+});
 
-if (customerName) {
-    message += `\nनाम: ${customerName}\n`;
-}
+message += `\nकुल: ₹${total}\n`;
 
-if (customerMobile) {
-    message += `मोबाइल नंबर: ${customerMobile}\n`;
-}
+message += `\n--- Customer Details ---\n`;
+
+message += `नाम: ${customerName || "नहीं दिया गया"}\n`;
+
+message += `मोबाइल: ${customerMobile || "नहीं दिया गया"}\n`;
 
 if (customerNote) {
     message += `नोट: ${customerNote}\n`;
@@ -1711,13 +1722,7 @@ const whatsappNumber = "919129033788";
 const whatsappURL =
     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-window.open(
-    whatsappURL,
-    "_blank"
-);
-
-    }
-
+window.open(whatsappURL, "_blank");
 
     /* =========================
        CLOSE MODAL OUTSIDE CLICK
