@@ -1632,102 +1632,78 @@ const products = [
     }
 
 
-    /* =========================
-       SEND WHATSAPP ORDER
-       ========================= */
+/* =========================
+   SEND WHATSAPP ORDER
+   ========================= */
 
-    function sendWhatsAppOrder() {
+function sendWhatsAppOrder() {
 
-      if (orderList.length === 0) {
-
+    if (orderList.length === 0) {
         alert("पहले कोई product Order List में जोड़ें।");
-
         return;
-
-      }
-
-
-      const customerName =
-        document
-          .getElementById("customerName")
-          .value
-          .trim();
-
-
-      const customerMobile =
-        document
-          .getElementById("customerMobile")
-          .value
-          .trim();
-
-
-      const customerNote =
-        document
-          .getElementById("customerNote")
-          .value
-          .trim();
-
-
-      const customerName = document
-    .getElementById("customerName")
-    .value
-    .trim();
-
-const customerMobile = document
-    .getElementById("customerMobile")
-    .value
-    .trim();
-
-const customerNote = document
-    .getElementById("customerNote")
-    .value
-    .trim();
-
-let message = "नमस्ते, मुझे ये products चाहिए:\n\n";
-
-let total = 0;
-
-orderList.forEach((item, index) => {
-
-    const itemTotal = item.price * item.quantity;
-
-    total += itemTotal;
-
-    message += `${index + 1}. ${item.name}`;
-
-    if (item.size) {
-        message += ` - ${item.size}`;
     }
 
-    message += ` - ${item.quantity} × ₹${item.price} = ₹${itemTotal}\n`;
+    const customerName = document
+        .getElementById("customerName")
+        .value
+        .trim();
 
-});
+    const customerMobile = document
+        .getElementById("customerMobile")
+        .value
+        .trim();
 
-message += `\nकुल: ₹${total}\n`;
+    const customerNote = document
+        .getElementById("customerNote")
+        .value
+        .trim();
 
-message += `\n--- Customer Details ---\n`;
+    let message =
+        "नमस्ते, मुझे अदिति ब्यूटी एंड कॉस्मेटिक हब से ये products चाहिए:\n\n";
 
-message += `नाम: ${customerName || "नहीं दिया गया"}\n`;
+    let total = 0;
 
-message += `मोबाइल: ${customerMobile || "नहीं दिया गया"}\n`;
+    orderList.forEach((item, index) => {
 
-if (customerNote) {
-    message += `नोट: ${customerNote}\n`;
+        const itemTotal = item.price * item.quantity;
+
+        total += itemTotal;
+
+        message += `${index + 1}. ${item.name}`;
+
+        if (item.size) {
+            message += ` - ${item.size}`;
+        }
+
+        message += ` - ${item.quantity} × ₹${item.price} = ₹${itemTotal}\n`;
+    });
+
+    message += `\nकुल: ₹${total}\n`;
+
+    message += `\n--- Customer Details ---\n`;
+
+    message += `नाम: ${customerName || "नहीं दिया गया"}\n`;
+
+    message += `मोबाइल: ${customerMobile || "नहीं दिया गया"}\n`;
+
+    if (customerNote) {
+        message += `नोट: ${customerNote}\n`;
+    }
+
+    message += `\nPayment: दुकान पर होगा।`;
+
+    const whatsappNumber = "919129033788";
+
+    const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
 }
 
-message += `\nPayment: दुकान पर होगा।`;
 
-const whatsappNumber = "919129033788";
-
-const whatsappURL =
-    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-window.open(whatsappURL, "_blank");
-
-    /* =========================
-       CLOSE MODAL OUTSIDE CLICK
-       ========================= */
-
+/* =========================
+   CLOSE MODAL OUTSIDE CLICK
+   ========================= */
     window.addEventListener(
       "click",
       function(event) {
