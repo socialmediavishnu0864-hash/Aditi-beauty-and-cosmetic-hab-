@@ -734,7 +734,7 @@
         >
 
         <label for="customerMobile">
-          Mobile Number (Optional)
+          मोबाइल नंबर 
         </label>
 
         <input
@@ -1809,6 +1809,10 @@ if (!customerName || !customerMobile) {
     window.open(whatsappURL, "_blank");
 }
 
+function closeValidationPopup() {
+    document.getElementById("validationPopup").style.display = "none";
+}
+    
 
 /* =========================
    CLOSE MODAL OUTSIDE CLICK
