@@ -1680,13 +1680,18 @@ function sendWhatsAppOrder() {
         .value
         .trim();
 
+if (!customerName || !customerMobile) {
+    alert("कृपया अपना नाम और मोबाइल नंबर भरें।");
+    return;
+}
+  
     const customerNote = document
         .getElementById("customerNote")
         .value
         .trim();
 
     let message =
-        "नमस्ते, मुझे अदिति ब्यूटी एंड कॉस्मेटिक हब से ये products चाहिए:\n\n";
+        "नमस्ते, मुझे ये products चाहिए:\n\n";
 
     let total = 0;
 
