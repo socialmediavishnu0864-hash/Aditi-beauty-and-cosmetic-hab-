@@ -1902,9 +1902,9 @@ const products = [
 function sendWhatsAppOrder() {
 
     if (orderList.length === 0) {
-        alert("पहले कोई product Order List में जोड़ें।");
-        return;
-    }
+    document.getElementById("emptyOrderPopup").style.display = "flex";
+    return;
+}
 
     const customerName = document
         .getElementById("customerName")
