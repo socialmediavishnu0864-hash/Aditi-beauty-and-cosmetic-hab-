@@ -1758,7 +1758,7 @@ function sendWhatsAppOrder() {
         .trim();
 
 if (!customerName || !customerMobile) {
-    alert("कृपया अपना नाम और मोबाइल नंबर भरें।");
+    document.getElementById("validationPopup").style.display = "flex";
     return;
 }
   
