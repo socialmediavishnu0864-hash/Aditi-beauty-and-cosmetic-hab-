@@ -519,6 +519,61 @@
         font-size: 13px;
       }
     }
+
+/* CUSTOM VALIDATION POPUP */
+
+.validation-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.55);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.validation-box {
+  width: 100%;
+  max-width: 360px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.30);
+  text-align: center;
+}
+
+.validation-header {
+  background: #5d1024;
+  color: white;
+  padding: 18px 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.validation-body {
+  padding: 20px 15px 8px;
+}
+
+.validation-body p {
+  margin: 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.validation-box button {
+  width: calc(100% - 40px);
+  margin: 10px 20px 20px;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: #5d1024;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  }
+    
   </style>
 </head>
 
